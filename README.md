@@ -28,10 +28,11 @@ To visualize uncertainty calibration results:
 python plot_results.py                                                                                                                                
 ```
 This script shows how the application of CP improves uncertainty quantification, achieving user-defined coverage guarantees.
-
+![Description](coverage_trajectory.png)
 
 To analyze uncertainty regions at specific timesteps:
 
  ```
 python plot_ellipsoids.py                                                                                                                                
 ```
+![Description](uncertainty_regions.png)
