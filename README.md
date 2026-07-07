@@ -41,7 +41,7 @@ Use the same calibration and projection pipeline with either pose-only datasets:
 python run_pipeline.py --dataset-dir ../datasets/OPENVINS
 ```
 
-or merged VIO files that contain per-pose covariance:
+or legacy merged VIO files that contain per-pose covariance:
 
 ```bash
 python run_pipeline.py --merged-csv data/VIO/V1_01_easy_merged.csv
@@ -79,10 +79,10 @@ CP experiment. The generated 3D plot projects the calibrated SE(3)
 set onto the camera origin and a forward body-attached point; the latter makes
 rotation-induced curvature visible.
 
-`minimal_run.py` is retained as a legacy experiment script. New dataset,
-calibration, and task-space experiments should use `run_pipeline.py` so that
-all dataset types share the same SE(3) residual, conformal score, and projection
-implementation.
+The `data/VIO` files are retained only for the merged-covariance and alignment
+fallback path. The current OpenVINS covariance experiments use the aligned
+OpenVINS export loaded by `openvins_covariance_experiment.py`,
+`adaptive_openvins_experiment.py`, and `openvins_volume_reduction_experiment.py`.
 
 ## Aligned OpenVINS covariance comparison
 
