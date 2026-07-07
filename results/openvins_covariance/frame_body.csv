@@ -1,0 +1,5 @@
+method,coverage,quantile,target_coverage,covariance_frame,body_point
+OpenVINS covariance,0.9132040627885504,125.24128821929021,0.9,body,"[3.0, 0.0, 0.0]"
+Empirical full 6D,0.6989843028624192,5.549358575708096,0.9,body,"[3.0, 0.0, 0.0]"
+Independent t/r blocks,0.4164358264081256,4.296695416657485,0.9,body,"[3.0, 0.0, 0.0]"
+Independent axis scales,0.5069252077562327,3.1866579716760817,0.9,body,"[3.0, 0.0, 0.0]"

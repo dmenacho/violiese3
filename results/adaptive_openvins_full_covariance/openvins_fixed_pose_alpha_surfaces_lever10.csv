@@ -1,0 +1,13 @@
+protocol,test_trajectory,pose_index,method,alpha,target_coverage,adaptive_radius,task_volume_m3,covered,body_point
+pooled_same_robot,OV_V1_02_medium,816,ACI,0.01,0.99,40.90752868169306,95.9368945802704,True,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,ACI,0.05,0.95,20.978566263106018,12.939078198200015,True,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,ACI,0.1,0.9,15.133139499451534,4.856943285815848,False,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,ACI,0.2,0.8,14.52949441775872,4.2986039470638016,False,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,ACI,0.4,0.6,12.964109050222444,3.0535423834810893,False,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,ACI,0.5,0.5,12.048292692103475,2.4510515991689648,False,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,AgACI-EWA,0.01,0.99,19.539022101905324,10.454045796359143,True,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,AgACI-EWA,0.05,0.95,19.32499816818674,10.114264577840775,True,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,AgACI-EWA,0.1,0.9,17.042073266746392,6.93654503219469,True,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,AgACI-EWA,0.2,0.8,16.86388334320673,6.721229017499935,False,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,AgACI-EWA,0.4,0.6,16.97126019570183,6.850435815257975,True,"[10.0, 0.0, 0.0]"
+pooled_same_robot,OV_V1_02_medium,816,AgACI-EWA,0.5,0.5,16.63797285679585,6.45471632136053,False,"[10.0, 0.0, 0.0]"
