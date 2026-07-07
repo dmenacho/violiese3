@@ -5,8 +5,8 @@ per-pose VIO covariance. This runner therefore evaluates the pose-only form of
 the method: fit a full empirical covariance in se(3), calibrate its radius with
 split conformal prediction, and test on disjoint temporal blocks or sequences.
 
-Use ``run_pipeline.py --merged-csv`` for legacy merged files that contain
-per-pose VIO covariance.
+Use ``openvins_covariance_experiment.py`` for aligned OpenVINS files that
+contain per-pose VIO covariance.
 """
 
 from __future__ import annotations

@@ -1,8 +1,14 @@
 # violiese3
 
-## OpenVINS comparison experiments
+## Current Pipeline
 
-The aligned pose-only OpenVINS dataset can be evaluated with:
+This branch keeps the aligned OpenVINS SE(3) conformal prediction pipeline.
+Shared SE(3) residual, conformal scoring, covariance regularization, and
+task-space projection code lives in `utils/conformal_prediction/se3.py`.
+Aligned OpenVINS dataset loading and covariance-frame conversion live in
+`utils/dataset_io.py`.
+
+The pose-only OpenVINS comparison can be evaluated with:
 
 ```bash
 python openvins_experiments.py
@@ -25,64 +31,14 @@ It evaluates three leakage-safe protocols:
 
 The uploaded comparison CSVs do not contain VIO covariance. Consequently, this
 runner fits a full empirical 6x6 covariance on a separate fit split. The
-covariance-aware per-pose method remains in `minimal_run.py`.
+covariance-aware per-pose method is evaluated by the aligned OpenVINS
+covariance experiments below.
 
 The canonical residual convention is `BODY`:
 
 ```text
 xi = Log(T_est^{-1} T_gt)
 ```
-
-## Unified pipeline
-
-Use the same calibration and projection pipeline with either pose-only datasets:
-
-```bash
-python run_pipeline.py --dataset-dir ../datasets/OPENVINS
-```
-
-or legacy merged VIO files that contain per-pose covariance:
-
-```bash
-python run_pipeline.py --merged-csv data/VIO/V1_01_easy_merged.csv
-```
-
-The default merged-data alignment is a Horn rigid transform fitted on the first
-20% of the trajectory and then frozen. Compare it against full-trajectory
-benchmark alignment with:
-
-```bash
-python alignment_experiment.py
-```
-
-This also generates full test-trajectory figures for `V2_02_medium_merged` with
-seven calibrated task-space regions. Green stars are jointly covered GT poses;
-red stars are misses. Select another sequence or task point with:
-
-```bash
-python alignment_experiment.py \
-  --visualize-sequence V2_02_medium_merged \
-  --body-point 1,0,0 \
-  --region-count 8
-```
-
-Both paths use the shared implementation in
-`utils/conformal_prediction/se3.py`, with dataset adapters in
-`utils/dataset_io.py`. Pose-only data use a clearly labeled empirical
-covariance fallback. Merged data use dynamic per-pose VIO covariance. Legacy
-merged files are aligned together with their world-frame covariance, which is
-then converted into the body tangent frame.
-Use `--covariance-frame body` only when the source covariance is already in
-body coordinates. `--alignment-mode full_trajectory` uses all ground-truth
-poses and is only a benchmark comparison, while `initial_block` is the causal
-CP experiment. The generated 3D plot projects the calibrated SE(3)
-set onto the camera origin and a forward body-attached point; the latter makes
-rotation-induced curvature visible.
-
-The `data/VIO` files are retained only for the merged-covariance and alignment
-fallback path. The current OpenVINS covariance experiments use the aligned
-OpenVINS export loaded by `openvins_covariance_experiment.py`,
-`adaptive_openvins_experiment.py`, and `openvins_volume_reduction_experiment.py`.
 
 ## Aligned OpenVINS covariance comparison
 
